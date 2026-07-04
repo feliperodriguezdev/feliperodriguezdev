@@ -190,6 +190,22 @@
     padding:4.6rem 0;
   }
   .piece:last-of-type{border-bottom:1px solid var(--hairline-soft)}
+  .piece--inspection{position:relative;overflow:hidden}
+  .piece--inspection > *{position:relative;z-index:1}
+  .piece--inspection::before{
+    content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+    background:url('cabina.png') no-repeat right center;
+    background-size:contain;
+    opacity:.28;
+  }
+  .piece--inspection::after{
+    content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+    background:linear-gradient(90deg,var(--black) 12%,rgba(0,0,0,.55) 45%,rgba(0,0,0,0) 78%);
+  }
+  @media(max-width:820px){
+    .piece--inspection::before{opacity:.16}
+    .piece--inspection::after{background:linear-gradient(180deg,rgba(0,0,0,0) 0%,var(--black) 70%)}
+  }
   .piece-head{
     display:flex;justify-content:space-between;align-items:baseline;gap:1.5rem;flex-wrap:wrap;
     margin-bottom:2.2rem;
@@ -566,7 +582,7 @@
       </div>
     </article>
 
-    <article class="piece reveal">
+    <article class="piece piece--inspection reveal">
       <div class="piece-head">
         <div>
           <span class="piece-no">No. III</span>
